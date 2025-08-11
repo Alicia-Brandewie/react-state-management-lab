@@ -94,25 +94,39 @@ const App = () => {
   )
 
 
-  
 
-  const handleAddFighter = () => {
+
+  const handleAddFighter = (zombieFighter) => {
     // console.log(zombieFighters);
     //  console.log(zombieFighter.id);
-      console.log("Button pushed!");
-const zombieFighter = zombieFighters.map((zombieFighter) => {
-      return {
-       id: zombieFighter.id,
-       name: zombieFighter.name,
-       price: zombieFighter.price,
-      strength: zombieFighter.strength,
-      agility: zombieFighter.agility,
-      img: zombieFighter.img,
-      }
-    });
-      
-    team.push([{ zombieFighter }]);
-    console.log(`Your team includes ${team}`);
+    console.log("Button pushed!");
+
+    const unusedZombieFighters = zombieFighters.filter((fighter) => 
+      fighter.id !== zombieFighter.id    
+      // if (fighter.id != zombieFighter.id) {
+      //   return {
+      //     id: fighter.id,
+      //     name: fighter.name,
+      //     price: fighter.price,
+      //     strength: fighter.strength,
+      //     agility: fighter.agility,
+      //     img: fighter.img,
+      //   }
+      // }
+      // else {
+      //   return {}
+      // }
+    );
+
+    setZombieFighters(unusedZombieFighters);
+
+    team.push(zombieFighter);
+    console.log(`Your team includes ${JSON.stringify(zombieFighter)}`);
+
+    // const unusedZombieFighters = zombieFighters.splice(0, 1, zombieFighter);
+    console.log(`Umused Zombies: ${JSON.stringify(unusedZombieFighters)}`)
+
+
   };
 
   // const addFighter = (newTeam) => {
@@ -142,8 +156,8 @@ const zombieFighter = zombieFighters.map((zombieFighter) => {
           <li key={zombieFighter.price}>Price:  {zombieFighter.price} gold</li>
           <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
           <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
-          <button 
-            onClick={() => handleAddFighter({})}        >
+          <button
+            onClick={() => handleAddFighter(zombieFighter)}        >
             Add {zombieFighter.name} to my team
           </button>
 
