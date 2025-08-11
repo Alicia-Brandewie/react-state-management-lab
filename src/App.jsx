@@ -143,6 +143,11 @@ const App = () => {
     //   newTeamArray.push(zombieFighter)
     // };
 
+
+    if( team.length === 0) {
+       return "Pick some team members!"}
+    else {}
+
   }
 
 
