@@ -101,8 +101,8 @@ const App = () => {
     //  console.log(zombieFighter.id);
     console.log("Button pushed!");
 
-    const unusedZombieFighters = zombieFighters.filter((fighter) => 
-      fighter.id !== zombieFighter.id    
+    const unusedZombieFighters = zombieFighters.filter((fighter) =>
+      fighter.id !== zombieFighter.id
       // if (fighter.id != zombieFighter.id) {
       //   return {
       //     id: fighter.id,
@@ -118,25 +118,32 @@ const App = () => {
       // }
     );
 
-    setZombieFighters(unusedZombieFighters);
-
-    team.push(zombieFighter);
-    console.log(`Your team includes ${JSON.stringify(zombieFighter)}`);
-
-    // const unusedZombieFighters = zombieFighters.splice(0, 1, zombieFighter);
-    console.log(`Umused Zombies: ${JSON.stringify(unusedZombieFighters)}`)
 
 
-  };
 
-  // const addFighter = (newTeam) => {
-  //   const newTeamArray = [...zombieFighters, newTeam];
-  //   setZombieFighters(newTeamArray);
-  //   //  setFighters([...zombieFighters, newTeam]); //consice version 
-  //   newTeamArray.push(zombieFighter)
-  // };
+    if (money < zombieFighter.price) {
+      console.log("Not enough money")
+    }
+    else {
+      setMoney(money - zombieFighter.price);
+      setZombieFighters(unusedZombieFighters);
+      team.push(zombieFighter);
+      setTeam(team);
+      console.log(`Your team includes ${JSON.stringify(team)}`);
+
+      // const unusedZombieFighters = zombieFighters.splice(0, 1, zombieFighter);
+      console.log(`Umused Zombies: ${JSON.stringify(unusedZombieFighters)}`)
 
 
+    }
+    // const addFighter = (newTeam) => {
+    //   const newTeamArray = [...zombieFighters, newTeam];
+    //   setZombieFighters(newTeamArray);
+    //   //  setFighters([...zombieFighters, newTeam]); //consice version 
+    //   newTeamArray.push(zombieFighter)
+    // };
+
+  }
 
 
 
