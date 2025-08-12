@@ -7,9 +7,6 @@ const App = () => {
   const [money, setMoney] = useState(100);
 
   const [zombieFighters, setZombieFighters] = useState([
-
-    // const zombieFighters = [
-
     {
       id: 1,
       name: 'Survivor',
@@ -97,29 +94,10 @@ const App = () => {
 
 
   const handleAddFighter = (zombieFighter) => {
-    // console.log(zombieFighters);
-    //  console.log(zombieFighter.id);
     console.log("Button pushed!");
-
     const unusedZombieFighters = zombieFighters.filter((fighter) =>
       fighter.id !== zombieFighter.id
-      // if (fighter.id != zombieFighter.id) {
-      //   return {
-      //     id: fighter.id,
-      //     name: fighter.name,
-      //     price: fighter.price,
-      //     strength: fighter.strength,
-      //     agility: fighter.agility,
-      //     img: fighter.img,
-      //   }
-      // }
-      // else {
-      //   return {}
-      // }
     );
-
-
-
 
     if (money < zombieFighter.price) {
       console.log("Not enough money")
@@ -129,47 +107,84 @@ const App = () => {
       setZombieFighters(unusedZombieFighters);
       team.push(zombieFighter);
       setTeam(team);
+
       console.log(`Your team includes ${JSON.stringify(team)}`);
-
-      // const unusedZombieFighters = zombieFighters.splice(0, 1, zombieFighter);
       console.log(`Umused Zombies: ${JSON.stringify(unusedZombieFighters)}`)
-
-
     }
-    // const addFighter = (newTeam) => {
-    //   const newTeamArray = [...zombieFighters, newTeam];
-    //   setZombieFighters(newTeamArray);
-    //   //  setFighters([...zombieFighters, newTeam]); //consice version 
-    //   newTeamArray.push(zombieFighter)
-    // };
 
 
-    if( team.length === 0) {
-       return "Pick some team members!"}
-    else {}
+
+    if (team.length === 0) {
+      console.log("Pick some team members!")
+    } // best attempt at # 7, couldn't get the UI to update
+    else {
+      return
+      team
+    }
+  }
+
+  // 8
+  let totalStrenth = 
+    //sum of team.zombieFighter.strength + team.zombieFighter ...++
+  
+  team.map((zombieFighter.strength) => {
+       for(let i=0; i > 0; i++) {zombieFighter.strength}
+          console.log(totalStrenth) 
+  })
+    // if team.length === 0 {totalStrenth===0}
+
+// 9
+//copy of 8 but for totalAgility 
+let totalAgility = team.map((zombieFighter.agility))
 
   }
+
+  
+// 11 
+//Basically duplicating/reversing 5-
+
+  // const handleRemoveFighter = (zombieFighter) => {
+  //   ...
+  // }
 
 
 
   return (
     <>
 
+      <h1>Your Team: {team}</h1>
+
       <div>
-        <h1>Team </h1>
-        <h2>Team Members: {team}</h2>
-        <h3>Wallet: {money} gold</h3>
+        {team.map((zombieFighter) => (
+          <ul>
+            <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
+            <img key={zombieFighter.img} src={zombieFighter.img}></img>
+            <li key={zombieFighter.price}>Price: {zombieFighter.price} </li>
+            <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
+            <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
+           {/* Question 10
+           <button
+            onClick={() => handleRemoveFighter(zombieFighter)}>
+            Remove {zombieFighter.name} from my team
+          </button> */}
+          </ul>
+        ))}
       </div>
 
+      <h2>Team Strength: {totalStrenth}</h2>
+      <h2>Team Agility: {totalAgility}</h2>
+      <h2>Wallet: {money}</h2>
+
+      <h2> Choose your Fighters!</h2>
       {zombieFighters.map((zombieFighter) => (
         <ul>
+          <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
           <img key={zombieFighter.img} src={zombieFighter.img}></img>
-          <p key={zombieFighter.name}> Name: {zombieFighter.name} </p>
           <li key={zombieFighter.price}>Price:  {zombieFighter.price} gold</li>
           <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
           <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
           <button
-            onClick={() => handleAddFighter(zombieFighter)}        >
+            onClick={() => handleAddFighter(zombieFighter)}>
             Add {zombieFighter.name} to my team
           </button>
 
