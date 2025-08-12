@@ -95,7 +95,6 @@ const App = () => {
 
 
   const handleAddFighter = (zombieFighter) => {
-    console.log("Button pushed!");
     const unusedZombieFighters = zombieFighters.filter((fighter) =>
       fighter.id !== zombieFighter.id
     );
@@ -123,11 +122,16 @@ const App = () => {
 
 
   // 11 
-  //Basically duplicating/reversing 5-
+  //Basically duplicating/reversing 5-9
 
-  // const handleRemoveFighter = (zombieFighter) => {
-  //   ...
-  // }
+  const handleRemoveFighter = (zombieFighter) => {
+    const angryWordsZombieFighters = team.filter((fighter)=>
+    fighter.id !== zombieFighter.id); 
+    setTeam(angryWordsZombieFighters);
+    setMoney(money + zombieFighter.price);
+    zombieFighters.push(zombieFighter);
+    setZombieFighters(zombieFighters);
+  }
 
 
 
@@ -144,11 +148,10 @@ const App = () => {
             <li key={zombieFighter.price}>Price: {zombieFighter.price} </li>
             <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
             <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
-            {/* Question 10
            <button
             onClick={() => handleRemoveFighter(zombieFighter)}>
             Remove {zombieFighter.name} from my team
-          </button> */}
+          </button>
           </ul>
         ))}
       </div>
