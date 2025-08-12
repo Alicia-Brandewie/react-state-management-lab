@@ -110,6 +110,9 @@ const App = () => {
 
       console.log(`Your team includes ${JSON.stringify(team)}`);
       console.log(`Umused Zombies: ${JSON.stringify(unusedZombieFighters)}`)
+    const totalStrenth = zombieFighter.strength // WHY YOU NO ADD
+    console.log(totalStrenth)
+    
     }
 
 
@@ -121,80 +124,90 @@ const App = () => {
       return
       team
     }
-  }
+  
 
   // 8
-  let totalStrenth = 
+
+  // const totalStrenth = zombieFighters.forEach((fighter) =>
+  //   0 + fighter.strength
+  // )
+  // const totalStrenth = team.forEach((zombieFighter) => { 0 + zombieFighter.strength })
     //sum of team.zombieFighter.strength + team.zombieFighter ...++
-  
-  team.map((zombieFighter.strength) => {
-       for(let i=0; i > 0; i++) {zombieFighter.strength}
-          console.log(totalStrenth) 
-  })
-    // if team.length === 0 {totalStrenth===0}
+   
 
-// 9
-//copy of 8 but for totalAgility 
-let totalAgility = team.map((zombieFighter.agility))
-
+  // team.map((zombieFighter.strength) => {
+  //      for(let i=0; i > team.length ; i++) {zombieFighter.strength} })
+  console.log(totalStrenth)
   }
 
-  
+
+
+
+  // if team.length === 0 {totalStrenth===0}
+
+  // 9
+  //copy of 8 but for totalAgility 
+  // let totalAgility = team.map((zombieFighter.agility))
+
+
+
+
 // 11 
 //Basically duplicating/reversing 5-
 
-  // const handleRemoveFighter = (zombieFighter) => {
-  //   ...
-  // }
+// const handleRemoveFighter = (zombieFighter) => {
+//   ...
+// }
 
 
 
-  return (
-    <>
+return (
+  <>
 
-      <h1>Your Team: {team}</h1>
+    <h1>Your Team: {team}</h1>
 
-      <div>
-        {team.map((zombieFighter) => (
-          <ul>
-            <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
-            <img key={zombieFighter.img} src={zombieFighter.img}></img>
-            <li key={zombieFighter.price}>Price: {zombieFighter.price} </li>
-            <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
-            <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
-           {/* Question 10
+    <div>
+      {team.map((zombieFighter) => (
+        <ul>
+          <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
+          <img key={zombieFighter.img} src={zombieFighter.img}></img>
+          <li key={zombieFighter.price}>Price: {zombieFighter.price} </li>
+          <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
+          <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
+          {/* Question 10
            <button
             onClick={() => handleRemoveFighter(zombieFighter)}>
             Remove {zombieFighter.name} from my team
           </button> */}
-          </ul>
-        ))}
-      </div>
-
-      <h2>Team Strength: {totalStrenth}</h2>
-      <h2>Team Agility: {totalAgility}</h2>
-      <h2>Wallet: {money}</h2>
-
-      <h2> Choose your Fighters!</h2>
-      {zombieFighters.map((zombieFighter) => (
-        <ul>
-          <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
-          <img key={zombieFighter.img} src={zombieFighter.img}></img>
-          <li key={zombieFighter.price}>Price:  {zombieFighter.price} gold</li>
-          <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
-          <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
-          <button
-            onClick={() => handleAddFighter(zombieFighter)}>
-            Add {zombieFighter.name} to my team
-          </button>
-
         </ul>
       ))}
+    </div>
+
+   
+   {/* <h2>Team Strength: {totalStrenth}</h2>
+    <h2>Team Agility: {totalAgility}</h2> */}
+    <h2>Wallet: {money}</h2>
+
+    <h2> Choose your Fighters!</h2>
+    {zombieFighters.map((zombieFighter) => (
+      <ul>
+        <h3 key={zombieFighter.name}> Name: {zombieFighter.name} </h3>
+        <img key={zombieFighter.img} src={zombieFighter.img}></img>
+        <li key={zombieFighter.price}>Price:  {zombieFighter.price} gold</li>
+        <li key={zombieFighter.strength}> Strength: {zombieFighter.strength} </li>
+        <li key={zombieFighter.agility}> Agility: {zombieFighter.agility} </li>
+        <button
+          onClick={() => handleAddFighter(zombieFighter)}>
+          Add {zombieFighter.name} to my team
+        </button>
+
+      </ul>
+    ))}
 
 
-    </>
+  </>
 
-  );
+);
 }
 
 export default App
